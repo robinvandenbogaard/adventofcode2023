@@ -18,6 +18,7 @@ class Game {
   }
 
   public static Game fromLine(Line line) {
-    return new Game(0);
+    int id = Integer.parseInt(line.text().substring(5,line.text().indexOf(":")));
+    return new Game(id);
   }
 }
