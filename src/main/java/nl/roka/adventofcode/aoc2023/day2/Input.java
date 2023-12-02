@@ -1,7 +1,8 @@
 package nl.roka.adventofcode.aoc2023.day2;
 
-public class Input {
-  public static Input of() {
-    return null;
+record Input(int red, int green, int blue) {
+
+  public static Input of(int red, int green, int blue) {
+    return new Input(red, green, blue);
   }
 }
