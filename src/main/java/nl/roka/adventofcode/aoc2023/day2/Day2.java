@@ -17,7 +17,14 @@ public class Day2 extends AbstractdayPuzzle {
 
   @Override
   public Answer runSilver() {
-    return Answer.TBD;
+    var input = Input.of();
+    var sumOfIds =
+        day.stream()
+            .map(Game::fromLine)
+            .filter(game -> game.isPossible(input))
+            .mapToInt(Game::id)
+            .sum();
+    return Answer.of(sumOfIds);
   }
 
   @Override
