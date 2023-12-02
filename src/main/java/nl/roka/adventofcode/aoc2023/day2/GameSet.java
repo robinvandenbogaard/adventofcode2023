@@ -25,8 +25,7 @@ record GameSet(int red, int green, int blue) {
 
   private static GameSet toSet(String setLine) {
     var pattern =
-        Pattern.compile(
-            "(?=((?<green>\\d+) green,?)|((?<red>\\d+) red,?)|((?<blue>\\d+) blue?));?");
+        Pattern.compile("((?<green>\\d+) green,?)|((?<red>\\d+) red,?)|((?<blue>\\d+) blue?);?");
     var matcher = pattern.matcher(setLine);
 
     if (!matcher.find())

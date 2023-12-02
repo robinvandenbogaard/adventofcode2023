@@ -32,9 +32,10 @@ class GameTest {
 
   @Test
   void multipleSets() {
-    Line line = Line.of( "Game 1: 3 blue, 4 red; 1 red, 6 blue, 2 green; 2 green");
+    Line line = Line.of("Game 1: 3 blue, 41 red; 1 red, 6 blue, 2 green; 200 green");
     var game = Game.fromLine(line);
-    assertThat(game.gameSets()).containsExactly(GameSet.of(4,0,3), GameSet.of(1,2,6), GameSet.of(0,2,0));
+    assertThat(game.gameSets())
+        .containsExactly(GameSet.of(41, 0, 3), GameSet.of(1, 2, 6), GameSet.of(0, 200, 0));
   }
 
   @Test
