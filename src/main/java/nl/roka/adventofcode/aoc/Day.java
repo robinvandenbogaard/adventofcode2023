@@ -1,7 +1,9 @@
 package nl.roka.adventofcode.aoc;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 public class Day {
   private final LineReader reader;
@@ -24,6 +26,11 @@ public class Day {
       action.accept(line.text());
       line = reader.nextLine();
     }
+  }
+
+  public Stream<Line> stream() {
+    reader.reset();
+    return reader.stream();
   }
 
   public int number() {
