@@ -2,10 +2,8 @@ package nl.roka.adventofcode.aoc2023.day2;
 
 import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
-import nl.roka.adventofcode.aoc.LineReader;
 import nl.roka.adventofcode.aoc.Runnner;
 import nl.roka.adventofcode.aoc2023.AbstractdayPuzzle;
-import nl.roka.adventofcode.aoc2023.day1.Day1;
 
 public class Day2 extends AbstractdayPuzzle {
 
@@ -15,10 +13,6 @@ public class Day2 extends AbstractdayPuzzle {
 
   public Day2() {
     super(new Day(2));
-  }
-
-  public Day2(LineReader reader) {
-    super(new Day(2, reader));
   }
 
   @Override
@@ -35,6 +29,12 @@ public class Day2 extends AbstractdayPuzzle {
 
   @Override
   public Answer runGold() {
-    return Answer.TBD;
+    var sumOfIds =
+        day.stream()
+            .map(Game::fromLine)
+            .map(Game::fewestNumberOfCubes)
+            .mapToInt(GameSet::pow)
+            .sum();
+    return Answer.of(sumOfIds);
   }
 }
