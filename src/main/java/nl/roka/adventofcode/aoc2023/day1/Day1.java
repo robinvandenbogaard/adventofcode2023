@@ -4,9 +4,9 @@ import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
 import nl.roka.adventofcode.aoc.LineReader;
 import nl.roka.adventofcode.aoc.Runnner;
-import nl.roka.adventofcode.aoc2023.AbstractdayPuzzle;
+import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
 
-public class Day1 extends AbstractdayPuzzle {
+public class Day1 extends AbstractDayPuzzle {
 
   public static void main(String[] args) {
     Runnner.run(new Day1());

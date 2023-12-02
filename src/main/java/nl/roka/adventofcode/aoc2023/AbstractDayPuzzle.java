@@ -6,12 +6,12 @@ import nl.roka.adventofcode.aoc.DayPuzzle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class AbstractdayPuzzle implements DayPuzzle {
+public abstract class AbstractDayPuzzle implements DayPuzzle {
   protected final Logger logger = LoggerFactory.getLogger(getClass());
 
   protected final Day day;
 
-  public AbstractdayPuzzle(Day day) {
+  public AbstractDayPuzzle(Day day) {
     this.day = Objects.requireNonNull(day);
   }
 
