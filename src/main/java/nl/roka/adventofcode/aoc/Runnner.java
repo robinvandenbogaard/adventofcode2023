@@ -1,25 +1,24 @@
 package nl.roka.adventofcode.aoc;
 
-
 public class Runnner {
 
   public static final int MAX_FILLER_LENGTH = 2;
 
   public static String run(DayPuzzle puzzle) {
 
-    Clock silverClock, goldClock;
+    StoppedClock silverClock, goldClock;
     Answer silver, gold;
 
     {
-      silverClock = Clock.start();
+      var clock = Clock.start();
       silver = puzzle.runSilver();
-      silverClock.stop();
+      silverClock = clock.stop();
     }
 
     {
-      goldClock = Clock.start();
+      var clock = Clock.start();
       gold = puzzle.runGold();
-      goldClock.stop();
+      goldClock = clock.stop();
     }
 
     var result =
