@@ -25,7 +25,8 @@ public class LineReader {
   }
 
   public Stream<Line> stream() {
-    return StreamSupport.stream(scanner.tokens().spliterator(), false).map(Line::of);
+    return StreamSupport.stream(scanner.useDelimiter("\r\n").tokens().spliterator(), false)
+        .map(Line::of);
   }
 
   public LineReader reset() {
