@@ -50,4 +50,15 @@ record GameSet(int red, int green, int blue) {
     log.info("Compared [lessThan={}] {} with {}", lessThan, this, input);
     return lessThan;
   }
+
+  public GameSet mergeMax(GameSet gameSet) {
+    return GameSet.of(
+        Math.max(this.red, gameSet.red),
+        Math.max(this.green, gameSet.green),
+        Math.max(this.blue, gameSet.blue));
+  }
+
+  public int pow() {
+    return red*green*blue;
+  }
 }

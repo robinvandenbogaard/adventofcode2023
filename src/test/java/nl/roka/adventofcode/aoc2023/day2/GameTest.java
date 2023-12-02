@@ -44,4 +44,11 @@ class GameTest {
     var input = new Input(2, 2, 2);
     assertThat(game.isPossible(input)).isTrue();
   }
+
+  @Test
+  void fewest_number_of_cubes_of_each_color() {
+    var game = new Game(1, List.of(GameSet.of(1, 1, 1), GameSet.of(0, 2, 2), GameSet.of(0, 1, 3)));
+
+    assertThat(game.fewestNumberOfCubes()).isEqualTo(GameSet.of(1,2,3));
+  }
 }

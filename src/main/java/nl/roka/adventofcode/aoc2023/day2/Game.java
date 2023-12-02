@@ -20,4 +20,8 @@ record Game(int id, List<GameSet> gameSets) {
     List<GameSet> gameSets = GameSet.toSets(line.text().substring(semicolonIndex+1));
     return new Game(id, gameSets);
   }
+
+  public GameSet fewestNumberOfCubes() {
+    return gameSets.stream().reduce(GameSet.of(0,0,0), GameSet::mergeMax);
+  }
 }
