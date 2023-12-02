@@ -6,8 +6,12 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public record GameSet(int red, int green, int blue) {
+record GameSet(int red, int green, int blue) {
+  private static final Logger log = LoggerFactory.getLogger(GameSet.class);
+
   public static GameSet of(Integer red, Integer green, Integer blue) {
     return new GameSet(
         Objects.requireNonNullElse(red, 0),
@@ -40,5 +44,11 @@ public record GameSet(int red, int green, int blue) {
 
   private static Integer getColorCount(Matcher matcher, String colorGroup, Integer currentColor) {
     return Optional.ofNullable(matcher.group(colorGroup)).map(Integer::parseInt).orElse(currentColor);
+  }
+
+  public boolean lessThan(Input input) {
+    boolean lessThan = red <= input.red() && green <= input.green() && blue <= input.blue();
+    log.info("Compared [lessThan={}] {} with {}", lessThan, this, input);
+    return lessThan;
   }
 }
