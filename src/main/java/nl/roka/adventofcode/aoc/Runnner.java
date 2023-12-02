@@ -1,17 +1,37 @@
 package nl.roka.adventofcode.aoc;
 
+
 public class Runnner {
 
   public static final int MAX_FILLER_LENGTH = 2;
 
   public static String run(DayPuzzle puzzle) {
 
-    var silver = puzzle.runSilver();
-    var gold = puzzle.runGold();
+    Clock silverClock, goldClock;
+    Answer silver, gold;
+
+    {
+      silverClock = Clock.start();
+      silver = puzzle.runSilver();
+      silverClock.stop();
+    }
+
+    {
+      goldClock = Clock.start();
+      gold = puzzle.runGold();
+      goldClock.stop();
+    }
 
     var result =
-        "Day %s: [silver='%s', gold='%s']"
-            .formatted(format(puzzle.dayNumber()), silver.text(), gold.text());
+        """
+        Day %s:  [%s]\tsilver = '%s'
+                  [%s]\tgold   = '%s'"""
+            .formatted(
+                format(puzzle.dayNumber()),
+                silverClock.print(),
+                silver.text(),
+                goldClock.print(),
+                gold.text());
     System.out.println(result);
     return result;
   }
