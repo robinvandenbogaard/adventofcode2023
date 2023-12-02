@@ -14,7 +14,7 @@ record Game(int id, List<GameSet> gameSets) {
   }
 
   public static Game fromLine(Line line) {
-    log.info("line: {}", line);
+    log.debug("line: {}", line);
     int semicolonIndex = line.text().indexOf(":");
     int id = Integer.parseInt(line.text().substring(5, semicolonIndex));
     List<GameSet> gameSets = GameSet.toSets(line.text().substring(semicolonIndex+1));

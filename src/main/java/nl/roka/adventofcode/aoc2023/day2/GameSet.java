@@ -47,7 +47,7 @@ record GameSet(int red, int green, int blue) {
 
   public boolean lessThan(Input input) {
     boolean lessThan = red <= input.red() && green <= input.green() && blue <= input.blue();
-    log.info("Compared [lessThan={}] {} with {}", lessThan, this, input);
+    log.debug("Compared [lessThan={}] {} with {}", lessThan, this, input);
     return lessThan;
   }
 
