@@ -36,4 +36,8 @@ public class Day {
   public int number() {
     return number;
   }
+
+  public Grid fullGrid() {
+    return Grid.of(reader);
+  }
 }
