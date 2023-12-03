@@ -38,6 +38,7 @@ public class Day {
   }
 
   public Grid fullGrid() {
+    reader.reset();
     return Grid.of(reader);
   }
 }
