@@ -18,7 +18,7 @@ class Schematic {
       locations.scanAndAppendAllSymbols(row, grid.row(row));
     }
 
-    var parts = locations.symbols().stream().flatMap(p -> Part.find(p, grid).stream()).toList();
+    var parts = locations.symbols().stream().flatMap(symbol -> Part.find(symbol.point(), grid).stream()).toList();
 
     return new Schematic(parts);
   }
