@@ -56,4 +56,16 @@ final class Symbol {
   public boolean isGear() {
     return "*".equals(symbol);
   }
+
+  public int productOfParts() {
+    if (!isGear()) {
+      throw new IllegalStateException(
+          "Cannot compute product unless it is a gear. This has symbol " + symbol);
+    }
+    if (symbolParts.size() <= 1) {
+      return 0;
+    } else {
+      return symbolParts.stream().mapToInt(Part::value).reduce(1, (x, y) -> x * y);
+    }
+  }
 }

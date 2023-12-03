@@ -1,14 +1,10 @@
 package nl.roka.adventofcode.aoc2023.day3;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
-import nl.roka.adventofcode.aoc.Line;
-import nl.roka.adventofcode.aoc.Point;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class SymbolLocationsTest {
   @Test
