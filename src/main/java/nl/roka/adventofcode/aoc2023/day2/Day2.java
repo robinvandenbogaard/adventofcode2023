@@ -2,13 +2,13 @@ package nl.roka.adventofcode.aoc2023.day2;
 
 import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
-import nl.roka.adventofcode.aoc.Runnner;
+import nl.roka.adventofcode.aoc.Runner;
 import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
 
 public class Day2 extends AbstractDayPuzzle {
 
   public static void main(String[] args) {
-    Runnner.run(new Day2());
+    Runner.run(new Day2());
   }
 
   public Day2() {

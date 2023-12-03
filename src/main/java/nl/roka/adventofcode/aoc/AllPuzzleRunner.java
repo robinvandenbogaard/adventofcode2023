@@ -9,7 +9,17 @@ import org.reflections.Reflections;
 public class AllPuzzleRunner {
 
   public static void main(String[] args) {
-    getAbstractDayPuzzles().forEach(Runnner::run);
+
+    System.err.printf(
+        "%nWarming up the jvm by solving all puzzles %d times. Then time and solve the puzzle and print the results.%n%n",
+        Runner.WARMUP_REPETITIONS);
+
+    getAbstractDayPuzzles()
+        .forEach(
+            puzzle -> {
+              Runner.warmup(puzzle);
+              Runner.run(puzzle);
+            });
   }
 
   private static Stream<AbstractDayPuzzle> getAbstractDayPuzzles() {

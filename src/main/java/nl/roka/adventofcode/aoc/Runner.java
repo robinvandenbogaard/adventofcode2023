@@ -1,8 +1,9 @@
 package nl.roka.adventofcode.aoc;
 
-public class Runnner {
+public class Runner {
 
-  public static final int MAX_FILLER_LENGTH = 2;
+  static final int MAX_FILLER_LENGTH = 2;
+  static final int WARMUP_REPETITIONS = 50;
 
   public static String run(DayPuzzle puzzle) {
 
@@ -45,6 +46,14 @@ public class Runnner {
     } else {
       var missingCharacters = MAX_FILLER_LENGTH - text.length() + 1;
       return "0".repeat(missingCharacters) + text;
+    }
+  }
+
+  public static void warmup(DayPuzzle puzzle) {
+
+    for (int repetition = 0; repetition < WARMUP_REPETITIONS; repetition++) {
+      puzzle.runSilver();
+      puzzle.runGold();
     }
   }
 }
