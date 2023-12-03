@@ -52,4 +52,8 @@ final class Symbol {
   public Set<Part> symbolParts() {
     return symbolParts;
   }
+
+  public boolean isGear() {
+    return "*".equals(symbol);
+  }
 }
