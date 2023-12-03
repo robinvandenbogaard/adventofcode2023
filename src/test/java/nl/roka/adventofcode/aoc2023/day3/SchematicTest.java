@@ -1,11 +1,11 @@
 package nl.roka.adventofcode.aoc2023.day3;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import nl.roka.adventofcode.aoc.Grid;
 import nl.roka.adventofcode.aoc.LineReader;
 import nl.roka.adventofcode.aoc.Point;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class SchematicTest {
 
@@ -14,14 +14,23 @@ class SchematicTest {
     Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/schematicTest.in")));
     assertThat(schematic.parts()).containsExactlyInAnyOrder(Part.of(22, Point.of(1,3)), Part.of(1, Point.of(1,0)));
   }
+  
   @Test
   void parseTwoSymbolsOnePart() {
     Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/twoSymbolsOnePart.in")));
     assertThat(schematic.parts()).containsExactlyInAnyOrder(Part.of(1, Point.of(1,0)), Part.of(1, Point.of(1,0)));
   }
+
   @Test
   void parseOneSymbolTwoIdenticalParts() {
     Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/oneSymbolTwoIdenticalParts.in")));
     assertThat(schematic.parts()).containsExactlyInAnyOrder(Part.of(22, Point.of(0,1)), Part.of(22, Point.of(2,0)));
+  }
+
+  @Test
+  void recordPartsAtSymbol() {
+    Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/oneSymbolTwoIdenticalParts.in")));
+    assertThat(schematic.symbols().get(0).symbolParts()).containsExactlyInAnyOrder(Part.of(22, Point.of(0,1)), Part.of(22, Point.of(2,0)));
+
   }
 }
