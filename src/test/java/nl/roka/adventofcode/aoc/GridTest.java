@@ -17,4 +17,13 @@ class GridTest {
     assertThat(grid.get(1,1)).isEqualTo("b");
     assertThat(grid.get(1,2)).isEqualTo("c");
   }
+  @Test
+  void outOfBounds() {
+    Grid grid = Grid.of(LineReader.of("/gridTest.in"));
+
+    assertThat(grid.get(-1,0)).isNull();
+    assertThat(grid.get(2,0)).isNull();
+    assertThat(grid.get(1,-1)).isNull();
+    assertThat(grid.get(1,3)).isNull();
+  }
 }

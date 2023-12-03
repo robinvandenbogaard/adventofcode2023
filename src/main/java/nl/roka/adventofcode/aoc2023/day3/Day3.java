@@ -25,7 +25,6 @@ public class Day3 extends AbstractDayPuzzle {
     var sum =
         Schematic.parse(day.fullGrid())
             .parts()
-            .filter(Part::hasAdjecentSymbol)
             .mapToInt(Part::value)
             .sum();
     return Answer.of(sum);
