@@ -27,10 +27,6 @@ final class Symbol {
     return point;
   }
 
-  public String symbol() {
-    return symbol;
-  }
-
   @Override
   public boolean equals(Object obj) {
     if (obj == this) return true;

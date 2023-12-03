@@ -33,7 +33,7 @@ class Schematic {
     return parts.stream();
   }
 
-  public List<Symbol> symbols() {
-    return symbols;
+  public List<Symbol> gears() {
+    return symbols.stream().filter(Symbol::isGear).toList();
   }
 }
