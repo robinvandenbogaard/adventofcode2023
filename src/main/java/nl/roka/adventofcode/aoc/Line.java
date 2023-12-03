@@ -21,6 +21,10 @@ public final class Line {
     return text;
   }
 
+  public int lenght() {
+    return text == null ? 0 : text.length();
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
