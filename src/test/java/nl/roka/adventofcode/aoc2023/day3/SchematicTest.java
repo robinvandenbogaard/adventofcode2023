@@ -12,25 +12,28 @@ class SchematicTest {
   @Test
   void parseSchematic() {
     Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/schematicTest.in")));
-    assertThat(schematic.parts()).containsExactlyInAnyOrder(Part.of(22, Point.of(1,3)), Part.of(1, Point.of(1,0)));
+    assertThat(schematic.parts())
+        .containsExactlyInAnyOrder(Part.of(22, Point.of(1, 3)), Part.of(1, Point.of(1, 0)));
   }
-  
+
   @Test
   void parseTwoSymbolsOnePart() {
     Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/twoSymbolsOnePart.in")));
-    assertThat(schematic.parts()).containsExactlyInAnyOrder(Part.of(1, Point.of(1,0)), Part.of(1, Point.of(1,0)));
+    assertThat(schematic.parts())
+        .containsExactlyInAnyOrder(Part.of(1, Point.of(1, 0)), Part.of(1, Point.of(1, 0)));
   }
 
   @Test
   void parseOneSymbolTwoIdenticalParts() {
     Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/oneSymbolTwoIdenticalParts.in")));
-    assertThat(schematic.parts()).containsExactlyInAnyOrder(Part.of(22, Point.of(0,1)), Part.of(22, Point.of(2,0)));
+    assertThat(schematic.parts())
+        .containsExactlyInAnyOrder(Part.of(22, Point.of(0, 1)), Part.of(22, Point.of(2, 0)));
   }
 
   @Test
   void recordPartsAtSymbol() {
     Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/oneSymbolTwoIdenticalParts.in")));
-    assertThat(schematic.gears().get(0).symbolParts()).containsExactlyInAnyOrder(Part.of(22, Point.of(0,1)), Part.of(22, Point.of(2,0)));
-
+    assertThat(schematic.gears().get(0).symbolParts())
+        .containsExactlyInAnyOrder(Part.of(22, Point.of(0, 1)), Part.of(22, Point.of(2, 0)));
   }
 }

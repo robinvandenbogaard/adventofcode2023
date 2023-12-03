@@ -25,9 +25,9 @@ class GameTest {
 
   @Test
   void singleSet() {
-    Line line = Line.of( "Game 1: 1 red, 2 green, 6 blue");
+    Line line = Line.of("Game 1: 1 red, 2 green, 6 blue");
     var game = Game.fromLine(line);
-    assertThat(game.gameSets()).containsExactly(GameSet.of(1,2,6));
+    assertThat(game.gameSets()).containsExactly(GameSet.of(1, 2, 6));
   }
 
   @Test
@@ -49,6 +49,6 @@ class GameTest {
   void fewest_number_of_cubes_of_each_color() {
     var game = new Game(1, List.of(GameSet.of(1, 1, 1), GameSet.of(0, 2, 2), GameSet.of(0, 1, 3)));
 
-    assertThat(game.fewestNumberOfCubes()).isEqualTo(GameSet.of(1,2,3));
+    assertThat(game.fewestNumberOfCubes()).isEqualTo(GameSet.of(1, 2, 3));
   }
 }

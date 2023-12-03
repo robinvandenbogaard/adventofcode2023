@@ -21,10 +21,15 @@ class Schematic {
       locations.scanAndAppendAllSymbols(row, grid.row(row));
     }
 
-    var parts = locations.symbols().stream().flatMap(symbol -> {
-      Set<Part> symbolParts = Part.find(symbol.point(), grid);
-      symbol.addAll(symbolParts);
-      return symbolParts.stream();}).toList();
+    var parts =
+        locations.symbols().stream()
+            .flatMap(
+                symbol -> {
+                  Set<Part> symbolParts = Part.find(symbol.point(), grid);
+                  symbol.addAll(symbolParts);
+                  return symbolParts.stream();
+                })
+            .toList();
 
     return new Schematic(locations.symbols(), parts);
   }

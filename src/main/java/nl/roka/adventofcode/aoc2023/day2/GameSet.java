@@ -42,7 +42,9 @@ record GameSet(int red, int green, int blue) {
   }
 
   private static Integer getColorCount(Matcher matcher, String colorGroup, Integer currentColor) {
-    return Optional.ofNullable(matcher.group(colorGroup)).map(Integer::parseInt).orElse(currentColor);
+    return Optional.ofNullable(matcher.group(colorGroup))
+        .map(Integer::parseInt)
+        .orElse(currentColor);
   }
 
   public boolean lessThan(Input input) {
@@ -59,6 +61,6 @@ record GameSet(int red, int green, int blue) {
   }
 
   public int pow() {
-    return red*green*blue;
+    return red * green * blue;
   }
 }

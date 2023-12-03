@@ -8,29 +8,25 @@ class RunnnerTest {
   @Test
   void fillDaysWithLeadingZerosUnderTen() {
     DayPuzzle puzzle = createPuzzle(0);
-    assertThat(Runnner.run(puzzle))
-        .contains("Day 000:");
+    assertThat(Runnner.run(puzzle)).contains("Day 000:");
   }
 
   @Test
   void dontFillDaysWithLeadingZerosTenAndUp() {
     DayPuzzle puzzle = createPuzzle(10);
-    assertThat(Runnner.run(puzzle))
-        .contains("Day 010:");
+    assertThat(Runnner.run(puzzle)).contains("Day 010:");
   }
 
   @Test
   void ouputContainsSilverAnswer() {
     DayPuzzle puzzle = createPuzzle(1);
-    assertThat(Runnner.run(puzzle))
-            .contains("my silver answer");
+    assertThat(Runnner.run(puzzle)).contains("my silver answer");
   }
 
   @Test
   void ouputContainsGoldAnswer() {
     DayPuzzle puzzle = createPuzzle(1);
-    assertThat(Runnner.run(puzzle))
-            .contains("my gold answer");
+    assertThat(Runnner.run(puzzle)).contains("my gold answer");
   }
 
   private DayPuzzle createPuzzle(int day) {

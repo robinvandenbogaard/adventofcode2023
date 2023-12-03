@@ -22,20 +22,14 @@ public class Day3 extends AbstractDayPuzzle {
 
   @Override
   public Answer runSilver() {
-    var sum =
-        Schematic.parse(day.fullGrid())
-            .parts()
-            .mapToInt(Part::value)
-            .sum();
+    var sum = Schematic.parse(day.fullGrid()).parts().mapToInt(Part::value).sum();
     return Answer.of(sum);
   }
 
   @Override
   public Answer runGold() {
     var sum =
-        Schematic.parse(day.fullGrid()).gears().stream()
-                 .mapToInt(Symbol::productOfParts)
-                 .sum();
+        Schematic.parse(day.fullGrid()).gears().stream().mapToInt(Symbol::productOfParts).sum();
     return Answer.of(sum);
   }
 }

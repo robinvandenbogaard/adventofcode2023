@@ -1,10 +1,9 @@
 package nl.roka.adventofcode.aoc;
 
-
 public class Grid {
   private final String[] grid;
 
-  Grid(String[]grid) {
+  Grid(String[] grid) {
     this.grid = grid;
   }
 
@@ -14,7 +13,7 @@ public class Grid {
 
     String[] grid = new String[rowCount];
 
-    for(int row = 0; row < rowCount; row++) {
+    for (int row = 0; row < rowCount; row++) {
       Line line = reader.nextLine();
       grid[row] = line.text();
     }
@@ -23,8 +22,7 @@ public class Grid {
   }
 
   public String get(int row, int column) {
-    if (!inBounds(row, column))
-      return null;
+    if (!inBounds(row, column)) return null;
     return String.valueOf(grid[row].toCharArray()[column]);
   }
 
