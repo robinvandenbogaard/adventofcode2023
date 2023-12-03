@@ -32,6 +32,10 @@ public class Day3 extends AbstractDayPuzzle {
 
   @Override
   public Answer runGold() {
-    return Answer.TBD;
+    var sum =
+        Schematic.parse(day.fullGrid()).gears().stream()
+                 .mapToInt(Symbol::productOfParts)
+                 .sum();
+    return Answer.of(sum);
   }
 }
