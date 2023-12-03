@@ -9,7 +9,7 @@ class Day3Test {
 
   @Test
   void silverExample() {
-    assertThat(new Day3().runSilver()).isEqualTo(Answer.of("TBD"));
+    assertThat(new Day3().runSilver()).isEqualTo(Answer.of("4361"));
   }
 
   @Test
