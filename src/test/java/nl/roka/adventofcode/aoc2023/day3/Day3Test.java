@@ -14,6 +14,6 @@ class Day3Test {
 
   @Test
   void goldExample() {
-    assertThat(new Day3().runGold()).isEqualTo(Answer.of("TBD"));
+    assertThat(new Day3().runGold()).isEqualTo(Answer.of("467835"));
   }
 }
