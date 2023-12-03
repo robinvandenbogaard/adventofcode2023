@@ -18,4 +18,8 @@ public record Point(int x, int y) {
         Point.of(x, y + 1),
         Point.of(x + 1, y + 1));
   }
+
+  public Point setY(int y) {
+    return Point.of(x, y);
+  }
 }

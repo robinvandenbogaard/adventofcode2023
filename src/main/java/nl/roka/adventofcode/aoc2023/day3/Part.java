@@ -1,19 +1,17 @@
 package nl.roka.adventofcode.aoc2023.day3;
 
-import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import nl.roka.adventofcode.aoc.Grid;
 import nl.roka.adventofcode.aoc.Point;
 
-record Part(int value) {
+record Part(int value, Point start) {
 
   public static final Pattern PART_NUMBER = Pattern.compile("[0-9]+");
 
-  public static Part of(int value) {
-    return new Part(value);
+  public static Part of(int value, Point start) {
+    return new Part(value, start);
   }
 
   public static Set<Part> find(Point point, Grid grid) {
@@ -29,8 +27,8 @@ record Part(int value) {
     while (matcher.find()) {
       var position = matcher.start();
       var number = matcher.group();
-      if (p.y() >= position && p.y() < number.length()+position)
-        return Part.of(Integer.parseInt(number));
+      if (p.y() >= position && p.y() < number.length() + position)
+        return Part.of(Integer.parseInt(number), p.setY(position));
     }
 
     throw new IllegalArgumentException("Part not found, but it MUST exist");
