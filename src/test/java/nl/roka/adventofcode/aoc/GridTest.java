@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class GridTest {
   @Test
   void gridCreation() {
-    Grid grid = Grid.of(LineReader.of("/gridTest.in"));
+    Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
 
     assertThat(grid.get(0,0)).isEqualTo("1");
     assertThat(grid.get(0,1)).isEqualTo("2");
@@ -19,7 +19,7 @@ class GridTest {
   }
   @Test
   void outOfBounds() {
-    Grid grid = Grid.of(LineReader.of("/gridTest.in"));
+    Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
 
     assertThat(grid.get(-1,0)).isNull();
     assertThat(grid.get(2,0)).isNull();

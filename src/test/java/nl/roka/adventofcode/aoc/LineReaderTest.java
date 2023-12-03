@@ -8,7 +8,7 @@ class LineReaderTest {
 
   @Test
   void readLine() {
-    var reader = LineReader.of("/linereaderTest.in");
+    var reader = LineReader.of("/aoc/linereaderTest.in");
 
     assertThat(reader.nextLine()).isEqualTo(Line.of("1abc2"));
     assertThat(reader.nextLine()).isEqualTo(Line.of("pqr3stu8vwx"));
@@ -19,7 +19,7 @@ class LineReaderTest {
 
   @Test
   void stream() {
-    var allLines = LineReader.of("/linereaderTest.in").stream().toList();
+    var allLines = LineReader.of("/aoc/linereaderTest.in").stream().toList();
 
     assertThat(allLines)
         .containsExactly(
@@ -31,7 +31,7 @@ class LineReaderTest {
 
   @Test
   void streamTwiceNeedsAReset() {
-    LineReader lineReader = LineReader.of("/linereaderTest.in");
+    LineReader lineReader = LineReader.of("/aoc/linereaderTest.in");
 
     assertThat(lineReader.stream().toList())
         .containsExactly(
@@ -45,7 +45,7 @@ class LineReaderTest {
 
   @Test
   void streamTwiceAfterReset() {
-    LineReader lineReader = LineReader.of("/linereaderTest.in");
+    LineReader lineReader = LineReader.of("/aoc/linereaderTest.in");
 
     assertThat(lineReader.stream().toList())
         .containsExactly(
@@ -66,7 +66,7 @@ class LineReaderTest {
 
   @Test
   void lineCount() {
-    LineReader lineReader = LineReader.of("/linereaderTest.in");
+    LineReader lineReader = LineReader.of("/aoc/linereaderTest.in");
     assertThat(lineReader.lineCount()).isEqualTo(4);
   }
 }
