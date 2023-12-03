@@ -64,4 +64,10 @@ class LineReaderTest {
                     Line.of("a1b2c 3d4e5f"),
                     Line.of("treb7uchet"));
   }
+
+  @Test
+  void lineCount() {
+    LineReader lineReader = LineReader.of("/linereaderTest.in");
+    assertThat(lineReader.lineCount()).isEqualTo(4);
+  }
 }

@@ -33,4 +33,8 @@ public class LineReader {
     scanner = new Scanner(Objects.requireNonNull(LineReader.class.getResourceAsStream(file)));
     return this;
   }
+
+  public int lineCount() {
+    return (int) stream().count();
+  }
 }
