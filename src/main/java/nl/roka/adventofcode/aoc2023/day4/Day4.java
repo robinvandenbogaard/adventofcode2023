@@ -1,5 +1,6 @@
 package nl.roka.adventofcode.aoc2023.day4;
 
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -30,22 +31,19 @@ public class Day4 extends AbstractDayPuzzle {
 
   @Override
   public Answer runGold() {
-    Map<Integer, Integer> obtainedCards =
-        day.stream()
-            .map(Card::toCard)
-            .map(Card::number)
-            .collect(Collectors.toMap(Function.identity(), (c) -> 1));
+    List<Card> cards = day.stream().map(Card::toCard).toList();
 
-    day.stream()
-        .map(Card::toCard)
-        .forEach(
-            currentCard -> {
-              var cardCount = obtainedCards.get(currentCard.number());
-              for (int copyNumber = 0; copyNumber < currentCard.countMatches(); copyNumber++) {
-                obtainedCards.computeIfPresent(
-                    currentCard.number() + copyNumber + 1, (k, v) -> v + cardCount);
-              }
-            });
+    Map<Integer, Integer> obtainedCards =
+        cards.stream().map(Card::number).collect(Collectors.toMap(Function.identity(), (c) -> 1));
+
+    cards.forEach(
+        currentCard -> {
+          var cardCount = obtainedCards.get(currentCard.number());
+          for (int copyNumber = 0; copyNumber < currentCard.countMatches(); copyNumber++) {
+            obtainedCards.computeIfPresent(
+                currentCard.number() + copyNumber + 1, (k, v) -> v + cardCount);
+          }
+        });
 
     return Answer.of(obtainedCards.values().stream().mapToInt(i -> i).sum());
   }
