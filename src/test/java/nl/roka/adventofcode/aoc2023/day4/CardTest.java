@@ -3,6 +3,8 @@ package nl.roka.adventofcode.aoc2023.day4;
 import nl.roka.adventofcode.aoc.Line;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CardTest {
@@ -22,5 +24,18 @@ class CardTest {
   @Test
   void toCardActual() {
     assertThat(Card.toCard(Line.of("Card 1:  1 | 2  3 10 1")).actual()).contains(1, 2, 3, 10);
+  }
+
+  @Test
+  void countMatches() {
+    var card = new Card(1, List.of(1,2,3,4), List.of(3,4));
+    assertThat(card.countMatches()).isEqualTo(2);
+  }
+
+  @Test
+  void countMatchesDuplicates() {
+    var card = new Card(1, List.of(1,2,3,4), List.of(3,3,4));
+    assertThat(card.countMatches()).isEqualTo(3);
+    //Might not be relevant
   }
 }

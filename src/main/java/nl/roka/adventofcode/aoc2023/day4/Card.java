@@ -1,6 +1,8 @@
 package nl.roka.adventofcode.aoc2023.day4;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import nl.roka.adventofcode.aoc.Line;
 
@@ -25,6 +27,8 @@ public record Card(int number, List<Integer> winning, List<Integer> actual) {
   }
 
   public int countMatches() {
-    return 0;
+    ArrayList<Integer> copy = new ArrayList<>(winning);
+    copy.retainAll(actual);
+    return copy.size();
   }
 }
