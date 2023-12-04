@@ -25,14 +25,16 @@ class SchematicTest {
 
   @Test
   void parseOneSymbolTwoIdenticalParts() {
-    Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/aoc/oneSymbolTwoIdenticalParts.in")));
+    Schematic schematic =
+        Schematic.parse(Grid.of(LineReader.of("/aoc/oneSymbolTwoIdenticalParts.in")));
     assertThat(schematic.parts())
         .containsExactlyInAnyOrder(Part.of(22, Point.of(0, 1)), Part.of(22, Point.of(2, 0)));
   }
 
   @Test
   void recordPartsAtSymbol() {
-    Schematic schematic = Schematic.parse(Grid.of(LineReader.of("/aoc/oneSymbolTwoIdenticalParts.in")));
+    Schematic schematic =
+        Schematic.parse(Grid.of(LineReader.of("/aoc/oneSymbolTwoIdenticalParts.in")));
     assertThat(schematic.gears().get(0).symbolParts())
         .containsExactlyInAnyOrder(Part.of(22, Point.of(0, 1)), Part.of(22, Point.of(2, 0)));
   }

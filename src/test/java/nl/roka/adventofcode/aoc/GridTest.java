@@ -9,21 +9,22 @@ class GridTest {
   void gridCreation() {
     Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
 
-    assertThat(grid.get(0,0)).isEqualTo("1");
-    assertThat(grid.get(0,1)).isEqualTo("2");
-    assertThat(grid.get(0,2)).isEqualTo("3");
+    assertThat(grid.get(0, 0)).isEqualTo("1");
+    assertThat(grid.get(0, 1)).isEqualTo("2");
+    assertThat(grid.get(0, 2)).isEqualTo("3");
 
-    assertThat(grid.get(1,0)).isEqualTo("a");
-    assertThat(grid.get(1,1)).isEqualTo("b");
-    assertThat(grid.get(1,2)).isEqualTo("c");
+    assertThat(grid.get(1, 0)).isEqualTo("a");
+    assertThat(grid.get(1, 1)).isEqualTo("b");
+    assertThat(grid.get(1, 2)).isEqualTo("c");
   }
+
   @Test
   void outOfBounds() {
     Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
 
-    assertThat(grid.get(-1,0)).isNull();
-    assertThat(grid.get(2,0)).isNull();
-    assertThat(grid.get(1,-1)).isNull();
-    assertThat(grid.get(1,3)).isNull();
+    assertThat(grid.get(-1, 0)).isNull();
+    assertThat(grid.get(2, 0)).isNull();
+    assertThat(grid.get(1, -1)).isNull();
+    assertThat(grid.get(1, 3)).isNull();
   }
 }
