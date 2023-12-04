@@ -1,5 +1,8 @@
 package nl.roka.adventofcode.aoc2023.day4;
 
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
 import nl.roka.adventofcode.aoc.Runner;
@@ -27,6 +30,23 @@ public class Day4 extends AbstractDayPuzzle {
 
   @Override
   public Answer runGold() {
-    return Answer.TBD;
+    Map<Integer, Integer> obtainedCards =
+        day.stream()
+            .map(Card::toCard)
+            .map(Card::number)
+            .collect(Collectors.toMap(Function.identity(), (c) -> 1));
+
+    day.stream()
+        .map(Card::toCard)
+        .forEach(
+            currentCard -> {
+              var cardCount = obtainedCards.get(currentCard.number());
+              for (int copyNumber = 0; copyNumber < currentCard.countMatches(); copyNumber++) {
+                obtainedCards.computeIfPresent(
+                    currentCard.number() + copyNumber + 1, (k, v) -> v + cardCount);
+              }
+            });
+
+    return Answer.of(obtainedCards.values().stream().mapToInt(i -> i).sum());
   }
 }
