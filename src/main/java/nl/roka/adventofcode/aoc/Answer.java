@@ -8,6 +8,10 @@ public record Answer(String text) {
     return of("" + value);
   }
 
+  public static Answer of(long value) {
+    return of("" + value);
+  }
+
   public static Answer of(String text) {
     return new Answer(text);
   }
