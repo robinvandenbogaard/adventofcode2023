@@ -17,7 +17,12 @@ public class Day4 extends AbstractDayPuzzle {
 
   @Override
   public Answer runSilver() {
-    return Answer.TBD;
+    return Answer.of(
+        day.stream()
+            .map(Card::toCard)
+            .mapToLong(Card::countMatches)
+            .map(ScoreCalculator::score)
+            .sum());
   }
 
   @Override
