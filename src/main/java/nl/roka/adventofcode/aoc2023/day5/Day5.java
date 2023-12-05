@@ -17,7 +17,8 @@ public class Day5 extends AbstractDayPuzzle {
 
   @Override
   public Answer runSilver() {
-    return Answer.TBD;
+    var almanac = Almanac.from(day.stream());
+    return Answer.of(almanac.seeds().size());
   }
 
   @Override

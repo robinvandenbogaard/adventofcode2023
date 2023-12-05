@@ -9,7 +9,7 @@ class Day5Test {
 
   @Test
   void runSilver() {
-    assertThat(new Day5().runSilver()).isEqualTo(Answer.of("TBD"));
+    assertThat(new Day5().runSilver()).isEqualTo(Answer.of("35"));
   }
 
   @Test
