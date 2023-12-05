@@ -19,6 +19,7 @@ public class LocationLocator {
           category.to(),
           source,
           destination);
+      source = destination;
     }
     return destination;
   }
