@@ -10,4 +10,16 @@ public record Mapping(BigInteger destinationRange, BigInteger sourceRange, BigIn
         BigInteger.valueOf(sourceRange),
         BigInteger.valueOf(length));
   }
+
+  public boolean inRange(BigInteger source) {
+    return between(sourceRange, sourceRange.add(length.subtract(BigInteger.ONE)), source);
+  }
+
+  private boolean between(BigInteger min, BigInteger max, BigInteger target) {
+    return target.compareTo(min) >= 0 && target.compareTo(max) <= 0;
+  }
+
+  public BigInteger getDestination(BigInteger source) {
+    return destinationRange.add(source.subtract(sourceRange));
+  }
 }
