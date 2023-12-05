@@ -43,4 +43,25 @@ class AlmanacTest {
                 .addMapping(Mapping.of(3, 2, 8))
                 .build());
   }
+
+  @Test
+  void findSeedsMerge() {
+    var almanac =
+        Almanac.fromSeedRange(
+            Stream.of(
+                Line.of(
+                    "seeds: 3943078016 158366385 481035699 103909769 3553279107 15651230 3322093486 189601966 2957349913 359478652 924423181 691197498 2578953067 27362630 124747783 108079254 1992340665 437203822 2681092979 110901631")));
+    assertThat(almanac.seeds())
+        .containsExactly(
+            new Seed(3943078016L, 158366385L),
+            new Seed(481035699L, 103909769L),
+            new Seed(3553279107L, 15651230L),
+            new Seed(3322093486L, 189601966L),
+            new Seed(2957349913L, 359478652L),
+            new Seed(924423181L, 691197498L),
+            new Seed(2578953067L, 27362630L),
+            new Seed(124747783L, 108079254L),
+            new Seed(1992340665L, 437203822L),
+            new Seed(2681092979L, 110901631L));
+  }
 }

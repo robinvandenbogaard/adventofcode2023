@@ -69,6 +69,6 @@ class LocationLocatorTest {
   @ParameterizedTest
   @CsvSource({"79, 82", "14, 43", "55, 86", "13, 35"})
   void productionTest(BigInteger seed, BigInteger expected) {
-    assertThat(LocationLocator.locate(new Seed(seed), almanac.categories())).isEqualTo(expected);
+    assertThat(LocationLocator.locate(Seed.of(seed), almanac.categories())).isEqualTo(expected);
   }
 }

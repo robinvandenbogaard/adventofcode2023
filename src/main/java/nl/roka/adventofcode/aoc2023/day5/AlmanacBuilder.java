@@ -44,7 +44,7 @@ class AlmanacBuilder {
     var result = new ArrayList<Seed>();
     for (int i = 1; i < seeds.size(); i += 2) {
       var seed = seeds.get(i - 1);
-      var length = seeds.get(i).number().subtract(BigInteger.ONE);
+      var length = seeds.get(i).number();
       result.add(new Seed(seed.number(), length));
     }
     return result;
