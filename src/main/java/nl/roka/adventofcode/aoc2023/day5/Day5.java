@@ -31,6 +31,12 @@ public class Day5 extends AbstractDayPuzzle {
 
   @Override
   public Answer runGold() {
-    return Answer.TBD;
+    var almanac = Almanac.fromSeedRange(day.stream());
+    var nearestLocation =
+        almanac.seeds().stream()
+            .map(seed -> LocationLocator.locate(seed, almanac.categories()))
+            .reduce(MAX_BIGINTEGER, BigInteger::min)
+            .toString();
+    return Answer.of(nearestLocation);
   }
 }

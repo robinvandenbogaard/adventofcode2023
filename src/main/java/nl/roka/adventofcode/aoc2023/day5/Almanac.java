@@ -14,7 +14,13 @@ class Almanac {
   }
 
   public static Almanac from(Stream<Line> stream) {
-    var builder = new AlmanacBuilder();
+    var builder = new AlmanacBuilder(false);
+    stream.map(Line::text).forEach(builder::append);
+    return builder.build();
+  }
+
+  public static Almanac fromSeedRange(Stream<Line> stream) {
+    var builder = new AlmanacBuilder(true);
     stream.map(Line::text).forEach(builder::append);
     return builder.build();
   }

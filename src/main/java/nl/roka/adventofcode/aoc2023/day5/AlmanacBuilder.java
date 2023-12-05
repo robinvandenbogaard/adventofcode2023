@@ -5,11 +5,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AlmanacBuilder {
+class AlmanacBuilder {
+  private final boolean rangedSeeds;
   private List<Seed> seeds = new ArrayList<>();
-  private List<Category> categories = new ArrayList<>();
+  private final List<Category> categories = new ArrayList<>();
 
   private CategoryBuilder categoryBuilder = null;
+
+  public AlmanacBuilder(boolean rangedSeeds) {
+    this.rangedSeeds = rangedSeeds;
+  }
 
   public void append(String line) {
     if (isSeeds(line)) {
@@ -29,7 +34,20 @@ public class AlmanacBuilder {
 
   private void parseSeeds(String line) {
     String numbersOnly = line.substring(line.indexOf(":") + 2);
-    seeds = Arrays.stream(numbersOnly.split(" ")).map(BigInteger::new).map(Seed::new).toList();
+    seeds = Arrays.stream(numbersOnly.split(" ")).map(BigInteger::new).map(Seed::of).toList();
+    if (rangedSeeds) {
+      seeds = toRangedSeeds(seeds);
+    }
+  }
+
+  private List<Seed> toRangedSeeds(List<Seed> seeds) {
+    var result = new ArrayList<Seed>();
+    for (int i = 1; i < seeds.size(); i += 2) {
+      var seed = seeds.get(i - 1);
+      var length = seeds.get(i).number().subtract(BigInteger.ONE);
+      result.add(new Seed(seed.number(), length));
+    }
+    return result;
   }
 
   private void finishCategory() {
