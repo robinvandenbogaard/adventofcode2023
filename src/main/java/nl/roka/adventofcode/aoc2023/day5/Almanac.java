@@ -23,6 +23,10 @@ class Almanac {
     return seeds;
   }
 
+  public List<Category> categories() {
+    return categories;
+  }
+
   public Category getCategory(int i) {
     return categories.get(i);
   }
