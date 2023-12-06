@@ -25,4 +25,26 @@ public record Seed(BigInteger number, BigInteger length) {
       looper = looper.add(BigInteger.ONE);
     }
   }
+
+  public boolean hasOverlap(Seed other) {
+    return between(minValue(), other) || between(maxValue(), other);
+  }
+
+  public boolean between(BigInteger value, Seed other) {
+    return value.compareTo(other.minValue()) >= 0 && value.compareTo(other.maxValue()) <= 0;
+  }
+
+  public BigInteger maxValue() {
+    return number.add(length.subtract(BigInteger.ONE));
+  }
+
+  public BigInteger minValue() {
+    return number;
+  }
+
+  public Seed merge(Seed other) {
+    var number = minValue().min(other.minValue());
+    var newLength = length.add(other.length);
+    return new Seed(number, newLength.subtract(BigInteger.TWO));
+  }
 }
