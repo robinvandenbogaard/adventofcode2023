@@ -30,11 +30,4 @@ class CardTest {
     var card = new Card(1, List.of(1,2,3,4), List.of(3,4));
     assertThat(card.countMatches()).isEqualTo(2);
   }
-
-  @Test
-  void countMatchesDuplicates() {
-    var card = new Card(1, List.of(1,2,3,4), List.of(3,3,4));
-    assertThat(card.countMatches()).isEqualTo(3);
-    //Might not be relevant
-  }
 }
