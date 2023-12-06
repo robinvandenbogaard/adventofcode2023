@@ -19,15 +19,13 @@ public class Day6 extends AbstractDayPuzzle {
   @Override
   public Answer runSilver() {
     Races races = Races.of(day.stream().map(Line::text).toList());
-    int score = 1;
-    for (int i = 0; i < races.races().size(); i++) {
-      score = score * races.races().get(i).numberOfWaysToWin();
-    }
-    return Answer.of(score);
+    return Answer.of(
+        races.toList().stream().mapToInt(Race::numberOfWaysToWin).reduce(1, (a, b) -> a * b));
   }
 
   @Override
   public Answer runGold() {
+    Race race = Races.ofFixedKerning(day.stream().map(Line::text).toList());
     return Answer.TBD;
   }
 }

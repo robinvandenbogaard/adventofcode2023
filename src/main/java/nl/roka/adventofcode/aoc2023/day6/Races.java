@@ -28,6 +28,13 @@ public record Races(List<Race> races) {
     return new Races(races);
   }
 
+  public static Race ofFixedKerning(List<String> input) {
+    var time = Integer.parseInt(input.get(0).substring(10).replaceAll(" ", "").trim());
+    var distance = Integer.parseInt(input.get(1).substring(10).replaceAll(" ", "").trim());
+
+    return Race.of(time, distance);
+  }
+
   public List<Race> toList() {
     return races();
   }

@@ -14,6 +14,6 @@ class Day6Test {
 
   @Test
   void runGold() {
-    assertThat(new Day6().runGold()).isEqualTo(Answer.of("TBD"));
+    assertThat(new Day6().runGold()).isEqualTo(Answer.of("71503"));
   }
 }
