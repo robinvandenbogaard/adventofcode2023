@@ -24,14 +24,16 @@ public class Runner {
 
     var result =
         """
-        Day %s:  [%s]\tsilver = '%s'
-                  [%s]\tgold   = '%s'"""
+        Day %s:  [%s]\tsilver = '%s'  ||| verified = %s
+                  [%s]\tgold   = '%s'  ||| verified = %s"""
             .formatted(
                 format(puzzle.dayNumber()),
                 silverClock.print(),
                 silver.text(),
+                puzzle.silverVerified(),
                 goldClock.print(),
-                gold.text());
+                gold.text(),
+                puzzle.goldVerified());
     System.out.println(result);
     return result;
   }

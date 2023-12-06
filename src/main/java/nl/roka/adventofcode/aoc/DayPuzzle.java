@@ -6,4 +6,8 @@ public interface DayPuzzle {
   Answer runGold();
 
   int dayNumber();
+
+  Answer goldVerified();
+
+  Answer silverVerified();
 }
