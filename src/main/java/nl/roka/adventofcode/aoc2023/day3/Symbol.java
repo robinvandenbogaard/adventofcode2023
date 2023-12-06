@@ -2,7 +2,7 @@ package nl.roka.adventofcode.aoc2023.day3;
 
 import java.util.Objects;
 import java.util.Set;
-import nl.roka.adventofcode.aoc.Point;
+import nl.roka.adventofcode.aoc.input.Point;
 
 final class Symbol {
   private final Point point;

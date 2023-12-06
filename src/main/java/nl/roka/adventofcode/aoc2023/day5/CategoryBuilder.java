@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CategoryBuilder {
+class CategoryBuilder {
   private String from;
   private String string;
   private final List<Mapping> mapping = new ArrayList<>();

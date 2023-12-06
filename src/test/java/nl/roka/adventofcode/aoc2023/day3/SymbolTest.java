@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Set;
-import nl.roka.adventofcode.aoc.Point;
+import nl.roka.adventofcode.aoc.input.Point;
 import org.junit.jupiter.api.Test;
 
 class SymbolTest {

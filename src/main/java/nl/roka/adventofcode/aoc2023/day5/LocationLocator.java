@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LocationLocator {
+class LocationLocator {
   private static final Logger log = LoggerFactory.getLogger(LocationLocator.class);
 
   public static BigInteger locate(Seed root, List<Category> categories) {

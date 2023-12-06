@@ -3,7 +3,7 @@ package nl.roka.adventofcode.aoc2023.day3;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
-import nl.roka.adventofcode.aoc.Grid;
+import nl.roka.adventofcode.aoc.input.Grid;
 
 class Schematic {
   private final List<Symbol> symbols;

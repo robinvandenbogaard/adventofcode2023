@@ -1,11 +1,11 @@
 package nl.roka.adventofcode.aoc2023.day1;
 
-import nl.roka.adventofcode.aoc.Answer;
-import nl.roka.adventofcode.aoc.Day;
-import nl.roka.adventofcode.aoc.LineReader;
-import nl.roka.adventofcode.aoc.Runner;
-import nl.roka.adventofcode.aoc.Solutions;
-import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
+import nl.roka.adventofcode.aoc.input.LineReader;
+import nl.roka.adventofcode.aoc.puzzle.AbstractDayPuzzle;
+import nl.roka.adventofcode.aoc.puzzle.Answer;
+import nl.roka.adventofcode.aoc.puzzle.Day;
+import nl.roka.adventofcode.aoc.puzzle.Solutions;
+import nl.roka.adventofcode.aoc.runner.Runner;
 
 public class Day1 extends AbstractDayPuzzle {
 

@@ -3,9 +3,9 @@ package nl.roka.adventofcode.aoc2023.day4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import nl.roka.adventofcode.aoc.Line;
+import nl.roka.adventofcode.aoc.input.Line;
 
-public record Card(int number, List<Integer> winning, List<Integer> actual) {
+record Card(int number, List<Integer> winning, List<Integer> actual) {
 
   public static Card toCard(Line line) {
     String text = line.text();

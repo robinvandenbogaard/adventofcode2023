@@ -1,4 +1,4 @@
-package nl.roka.adventofcode.aoc;
+package nl.roka.adventofcode.aoc.input;
 
 import java.util.List;
 

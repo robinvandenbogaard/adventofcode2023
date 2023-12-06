@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.fail;
 
 import java.util.List;
 import java.util.stream.Stream;
-import nl.roka.adventofcode.aoc.Line;
+import nl.roka.adventofcode.aoc.input.Line;
 import org.junit.jupiter.api.Test;
 
 class AlmanacTest {

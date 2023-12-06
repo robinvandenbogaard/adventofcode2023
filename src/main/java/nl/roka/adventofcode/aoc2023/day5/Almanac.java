@@ -2,7 +2,7 @@ package nl.roka.adventofcode.aoc2023.day5;
 
 import java.util.List;
 import java.util.stream.Stream;
-import nl.roka.adventofcode.aoc.Line;
+import nl.roka.adventofcode.aoc.input.Line;
 
 class Almanac {
   private final List<Seed> seeds;

@@ -1,4 +1,4 @@
-package nl.roka.adventofcode.aoc;
+package nl.roka.adventofcode.aoc.runner;
 
 class Clock {
   private final long nanoTimeStart;

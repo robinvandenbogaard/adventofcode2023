@@ -1,12 +1,14 @@
 package nl.roka.adventofcode.aoc2023.day5;
 
 import java.math.BigInteger;
-import nl.roka.adventofcode.aoc.Answer;
-import nl.roka.adventofcode.aoc.Day;
-import nl.roka.adventofcode.aoc.Runner;
-import nl.roka.adventofcode.aoc.Solutions;
-import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
+import nl.roka.adventofcode.aoc.puzzle.AbstractDayPuzzle;
+import nl.roka.adventofcode.aoc.puzzle.Answer;
+import nl.roka.adventofcode.aoc.puzzle.Day;
+import nl.roka.adventofcode.aoc.puzzle.Solutions;
+import nl.roka.adventofcode.aoc.runner.RequireOptimization;
+import nl.roka.adventofcode.aoc.runner.Runner;
 
+@RequireOptimization
 public class Day5 extends AbstractDayPuzzle {
 
   public static final BigInteger MAX_BIGINTEGER = new BigInteger("9223372036854775807");

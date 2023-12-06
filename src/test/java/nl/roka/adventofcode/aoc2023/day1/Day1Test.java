@@ -3,8 +3,8 @@ package nl.roka.adventofcode.aoc2023.day1;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.regex.Pattern;
-import nl.roka.adventofcode.aoc.Answer;
-import nl.roka.adventofcode.aoc.LineReader;
+import nl.roka.adventofcode.aoc.input.LineReader;
+import nl.roka.adventofcode.aoc.puzzle.Answer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

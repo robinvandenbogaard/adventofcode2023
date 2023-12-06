@@ -1,7 +1,7 @@
 package nl.roka.adventofcode.aoc2023.day2;
 
 import java.util.List;
-import nl.roka.adventofcode.aoc.Line;
+import nl.roka.adventofcode.aoc.input.Line;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

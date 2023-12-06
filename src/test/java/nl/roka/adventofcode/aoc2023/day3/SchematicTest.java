@@ -2,9 +2,9 @@ package nl.roka.adventofcode.aoc2023.day3;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import nl.roka.adventofcode.aoc.Grid;
-import nl.roka.adventofcode.aoc.LineReader;
-import nl.roka.adventofcode.aoc.Point;
+import nl.roka.adventofcode.aoc.input.Grid;
+import nl.roka.adventofcode.aoc.input.LineReader;
+import nl.roka.adventofcode.aoc.input.Point;
 import org.junit.jupiter.api.Test;
 
 class SchematicTest {

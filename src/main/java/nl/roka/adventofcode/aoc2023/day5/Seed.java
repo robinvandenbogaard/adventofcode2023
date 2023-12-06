@@ -3,7 +3,7 @@ package nl.roka.adventofcode.aoc2023.day5;
 import java.math.BigInteger;
 import java.util.function.Consumer;
 
-public record Seed(BigInteger number, BigInteger length) {
+record Seed(BigInteger number, BigInteger length) {
 
   public Seed(long number, long length) {
     this(BigInteger.valueOf(number), BigInteger.valueOf(length));

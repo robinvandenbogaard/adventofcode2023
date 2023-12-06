@@ -1,20 +1,22 @@
-package nl.roka.adventofcode.aoc;
+package nl.roka.adventofcode.aoc.runner;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Comparator;
 import java.util.stream.Stream;
-import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
+import nl.roka.adventofcode.aoc.puzzle.AbstractDayPuzzle;
 import org.reflections.Reflections;
 
-public class AllPuzzleRunner {
+class AllPuzzleRunner {
 
   public static void main(String[] args) {
 
-    System.err.printf(
-        "%nWarming up the jvm by solving all puzzles %d times. Then time and solve the puzzle and print the results.%n%n",
-        Runner.WARMUP_REPETITIONS);
+    if (Runner.WARMUP_REPETITIONS > 0)
+      System.err.printf(
+          "%nWarming up the jvm by solving all puzzles %d times. Then time and solve the puzzle and print the results.%n%n",
+          Runner.WARMUP_REPETITIONS);
 
     getAbstractDayPuzzles()
+        .parallel()
         .forEach(
             puzzle -> {
               Runner.warmup(puzzle);
@@ -26,6 +28,7 @@ public class AllPuzzleRunner {
     return new Reflections("nl.roka.adventofcode.aoc2023")
         .getSubTypesOf(AbstractDayPuzzle.class).stream()
             .sorted(Comparator.comparing(Class::getSimpleName))
+            .filter(AllPuzzleRunner::isStartingPuzzleAllowed)
             .map(
                 typeClass -> {
                   try {
@@ -37,5 +40,11 @@ public class AllPuzzleRunner {
                     throw new RuntimeException(e);
                   }
                 });
+  }
+
+  private static boolean isStartingPuzzleAllowed(Class<? extends AbstractDayPuzzle> clazz) {
+    var isSlow = clazz.isAnnotationPresent(RequireOptimization.class);
+    if (isSlow) System.err.printf("Skipping %s because it is SLOW%n%n", clazz.getSimpleName());
+    return !isSlow;
   }
 }

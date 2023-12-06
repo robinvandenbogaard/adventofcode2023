@@ -1,10 +1,6 @@
-package nl.roka.adventofcode.aoc2023;
+package nl.roka.adventofcode.aoc.puzzle;
 
 import java.util.Objects;
-import nl.roka.adventofcode.aoc.Answer;
-import nl.roka.adventofcode.aoc.Day;
-import nl.roka.adventofcode.aoc.DayPuzzle;
-import nl.roka.adventofcode.aoc.Solutions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

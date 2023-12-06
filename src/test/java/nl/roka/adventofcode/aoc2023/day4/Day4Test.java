@@ -2,7 +2,7 @@ package nl.roka.adventofcode.aoc2023.day4;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import nl.roka.adventofcode.aoc.Answer;
+import nl.roka.adventofcode.aoc.puzzle.Answer;
 import org.junit.jupiter.api.Test;
 
 class Day4Test {

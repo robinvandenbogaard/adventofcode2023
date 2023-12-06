@@ -1,8 +1,11 @@
-package nl.roka.adventofcode.aoc;
+package nl.roka.adventofcode.aoc.puzzle;
 
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
+import nl.roka.adventofcode.aoc.input.Grid;
+import nl.roka.adventofcode.aoc.input.Line;
+import nl.roka.adventofcode.aoc.input.LineReader;
 
 public class Day {
   private final LineReader reader;

@@ -3,7 +3,7 @@ package nl.roka.adventofcode.aoc2023.day4;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
-import nl.roka.adventofcode.aoc.Line;
+import nl.roka.adventofcode.aoc.input.Line;
 import org.junit.jupiter.api.Test;
 
 class CardTest {

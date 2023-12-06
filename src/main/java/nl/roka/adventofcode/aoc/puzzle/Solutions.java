@@ -1,4 +1,4 @@
-package nl.roka.adventofcode.aoc;
+package nl.roka.adventofcode.aoc.puzzle;
 
 public record Solutions(Answer silver, Answer gold) {
   public static Solutions none() {
