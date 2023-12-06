@@ -3,6 +3,7 @@ package nl.roka.adventofcode.aoc2023.day2;
 import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
 import nl.roka.adventofcode.aoc.Runner;
+import nl.roka.adventofcode.aoc.Solutions;
 import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
 
 public class Day2 extends AbstractDayPuzzle {
@@ -12,7 +13,7 @@ public class Day2 extends AbstractDayPuzzle {
   }
 
   public Day2() {
-    super(new Day(2));
+    super(new Day(2), Solutions.of(2176, 63700));
   }
 
   @Override

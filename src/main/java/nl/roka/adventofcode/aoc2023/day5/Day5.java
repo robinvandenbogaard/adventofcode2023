@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
 import nl.roka.adventofcode.aoc.Runner;
+import nl.roka.adventofcode.aoc.Solutions;
 import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
 
 public class Day5 extends AbstractDayPuzzle {
@@ -15,7 +16,7 @@ public class Day5 extends AbstractDayPuzzle {
   }
 
   public Day5() {
-    super(new Day(5));
+    super(new Day(5), Solutions.of(424490994, 15290096));
   }
 
   @Override

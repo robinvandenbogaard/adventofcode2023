@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
 import nl.roka.adventofcode.aoc.Runner;
+import nl.roka.adventofcode.aoc.Solutions;
 import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
 
 public class Day4 extends AbstractDayPuzzle {
@@ -16,7 +17,7 @@ public class Day4 extends AbstractDayPuzzle {
   }
 
   public Day4() {
-    super(new Day(4));
+    super(new Day(4), Solutions.of(20107, 8172507));
   }
 
   @Override

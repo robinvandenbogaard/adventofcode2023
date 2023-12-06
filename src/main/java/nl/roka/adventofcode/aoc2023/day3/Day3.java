@@ -4,6 +4,7 @@ import nl.roka.adventofcode.aoc.Answer;
 import nl.roka.adventofcode.aoc.Day;
 import nl.roka.adventofcode.aoc.LineReader;
 import nl.roka.adventofcode.aoc.Runner;
+import nl.roka.adventofcode.aoc.Solutions;
 import nl.roka.adventofcode.aoc2023.AbstractDayPuzzle;
 
 public class Day3 extends AbstractDayPuzzle {
@@ -13,7 +14,7 @@ public class Day3 extends AbstractDayPuzzle {
   }
 
   public Day3() {
-    super(new Day(3));
+    super(new Day(3), Solutions.of(540212, 87605697));
   }
 
   public Day3(LineReader reader) {
