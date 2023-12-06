@@ -1,7 +1,9 @@
 package nl.roka.adventofcode.aoc2023.day6;
 
-public record TravelDistance(int distance) {
+import java.math.BigInteger;
+
+public record TravelDistance(BigInteger distance) {
   public boolean greaterThan(Distance distance) {
-    return this.distance > distance.millimeters();
+    return this.distance.compareTo(distance.millimeters()) > 0;
   }
 }

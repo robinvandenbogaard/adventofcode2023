@@ -26,6 +26,6 @@ public class Day6 extends AbstractDayPuzzle {
   @Override
   public Answer runGold() {
     Race race = Races.ofFixedKerning(day.stream().map(Line::text).toList());
-    return Answer.TBD;
+    return Answer.of(race.numberOfWaysToWin());
   }
 }
