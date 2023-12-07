@@ -1,5 +1,7 @@
 package nl.roka.adventofcode.aoc2023.day7;
 
+import java.util.stream.IntStream;
+import nl.roka.adventofcode.aoc.input.Line;
 import nl.roka.adventofcode.aoc.puzzle.AbstractDayPuzzle;
 import nl.roka.adventofcode.aoc.puzzle.Answer;
 import nl.roka.adventofcode.aoc.puzzle.Day;
@@ -18,7 +20,13 @@ public class Day7 extends AbstractDayPuzzle {
 
   @Override
   public Answer runSilver() {
-    return Answer.TBD;
+    var hands =
+        day.stream().map(Line::text).map(Hand::parse).sorted(HandComparator::compare).toList();
+    return Answer.of(
+        IntStream.range(0, hands.size())
+            .mapToObj(index -> hands.get(index).ranked(index + 1))
+            .mapToInt(RankedHand::score)
+            .sum());
   }
 
   @Override
