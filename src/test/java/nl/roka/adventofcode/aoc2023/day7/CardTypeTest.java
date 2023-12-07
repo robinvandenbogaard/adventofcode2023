@@ -40,4 +40,9 @@ class CardTypeTest {
   void highCard() {
     assertThat(CardType.of("12345")).isEqualTo(CardType.HighCard);
   }
+
+  @Test
+  void failingInput1() {
+    assertThat(CardType.of("33773")).isEqualTo(CardType.FullHouse);
+  }
 }

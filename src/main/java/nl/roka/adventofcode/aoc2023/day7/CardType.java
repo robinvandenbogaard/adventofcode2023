@@ -39,7 +39,7 @@ public enum CardType {
 
     if (uniqueCount == 1) return FiveOfKind;
     else if (uniqueCount == 2 && (sequenceCount == 1 || sequenceCount == 4)) return FourOfKind;
-    else if (uniqueCount == 2 && sequenceCount > 2) return FullHouse;
+    else if (uniqueCount == 2 && (sequenceCount == 2 || sequenceCount == 3)) return FullHouse;
     else if (uniqueCount == 3 && pairs > 0) return TwoPair;
     else if (uniqueCount == 3) return CardType.ThreeOfKind;
     else if (uniqueCount == 4) return OnePair;
