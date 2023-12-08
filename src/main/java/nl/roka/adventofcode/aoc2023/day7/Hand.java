@@ -7,6 +7,12 @@ public record Hand(String hand, Bid bid, CardType cardType) {
     return new Hand(hand, Bid.of(split[1]), CardType.of(hand));
   }
 
+  public static Hand parseWithJoker(String line) {
+    String[] split = line.split(" ");
+    String hand = split[0];
+    return new Hand(hand, Bid.of(split[1]), CardType.ofJoker(hand));
+  }
+
   public RankedHand ranked(int position) {
     return new RankedHand(bid, position);
   }

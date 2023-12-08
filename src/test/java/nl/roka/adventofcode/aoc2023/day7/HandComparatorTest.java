@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class HandComparatorTest {
@@ -35,5 +36,30 @@ class HandComparatorTest {
     var rank1 = new Hand("AAAA3", null, CardType.FourOfKind);
     assertThat(HandComparator.compare(rank1, rank0)).isEqualTo(1);
     assertThat(HandComparator.compare(rank0, rank1)).isEqualTo(-1);
+  }
+
+  @Test
+  void joker() {
+    var rank0 = new Hand("AAAAJ", null, CardType.FourOfKind);
+    var rank1 = new Hand("AAAA2", null, CardType.FourOfKind);
+    assertThat(HandComparator.compareWithJoker(rank1, rank0)).isEqualTo(1);
+    assertThat(HandComparator.compareWithJoker(rank0, rank1)).isEqualTo(-1);
+  }
+
+  @Test
+  void joker_card_type_prefails() {
+    var rank0 = new Hand("JJAA3", null, CardType.TwoPair);
+    var rank1 = new Hand("JJJAA", null, CardType.ThreeOfKind);
+    assertThat(HandComparator.compareWithJoker(rank1, rank0)).isEqualTo(1);
+    assertThat(HandComparator.compareWithJoker(rank0, rank1)).isEqualTo(-1);
+  }
+
+  @Test
+  @DisplayName("JKKK2 is weaker than QQQQ2 because J is weaker than Q.")
+  void exampleJokerWeakness() {
+    var rank0 = new Hand("JKKK2", null, CardType.FourOfKind);
+    var rank1 = new Hand("QQQQ2", null, CardType.FourOfKind);
+    assertThat(HandComparator.compareWithJoker(rank1, rank0)).isEqualTo(1);
+    assertThat(HandComparator.compareWithJoker(rank0, rank1)).isEqualTo(-1);
   }
 }

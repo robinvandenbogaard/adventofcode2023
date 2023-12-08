@@ -48,6 +48,19 @@ public enum CardType {
     throw new IllegalArgumentException("Unknown card type for hand '" + hand + "'");
   }
 
+  public static CardType ofJoker(String hand) {
+    var regular = of(hand);
+    if (!hand.contains("J")) return regular;
+
+    return switch (regular) {
+      case FiveOfKind -> regular;
+      case FourOfKind, FullHouse -> FiveOfKind;
+      case ThreeOfKind, TwoPair -> FourOfKind;
+      case OnePair -> ThreeOfKind;
+      case HighCard -> OnePair;
+    };
+  }
+
   public int strength() {
     return strength;
   }

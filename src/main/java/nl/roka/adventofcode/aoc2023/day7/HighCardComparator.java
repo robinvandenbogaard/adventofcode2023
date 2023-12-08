@@ -35,4 +35,11 @@ public class HighCardComparator {
 
     return result;
   }
+
+  public static int compareJoker(Hand hand, Hand other) {
+    SCORE_MAP.put('J', -1);
+    var result = compare(hand, other);
+    SCORE_MAP.put('J', 9);
+    return result;
+  }
 }

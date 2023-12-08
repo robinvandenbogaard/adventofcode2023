@@ -6,6 +6,7 @@ import nl.roka.adventofcode.aoc.puzzle.Answer;
 import org.junit.jupiter.api.Test;
 
 class Day7Test {
+
   @Test
   void runSilver() {
     assertThat(new Day7().runSilver()).isEqualTo(Answer.of("6440"));
@@ -13,6 +14,6 @@ class Day7Test {
 
   @Test
   void runGold() {
-    assertThat(new Day7().runGold()).isEqualTo(Answer.of("TBD"));
+    assertThat(new Day7().runGold()).isEqualTo(Answer.of("5905"));
   }
 }
