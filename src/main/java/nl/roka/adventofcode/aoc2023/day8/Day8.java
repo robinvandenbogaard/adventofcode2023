@@ -1,5 +1,6 @@
 package nl.roka.adventofcode.aoc2023.day8;
 
+import nl.roka.adventofcode.aoc.input.Line;
 import nl.roka.adventofcode.aoc.puzzle.AbstractDayPuzzle;
 import nl.roka.adventofcode.aoc.puzzle.Answer;
 import nl.roka.adventofcode.aoc.puzzle.Day;
@@ -17,7 +18,19 @@ public class Day8 extends AbstractDayPuzzle {
 
   @Override
   public Answer runSilver() {
-    return Answer.TBD;
+    Maps maps = Maps.parse(day.stream().map(Line::text).toList());
+    var current = maps.getAAA();
+    var steps = 0;
+    while (current != maps.getZZZ()) {
+      steps++;
+      current =
+          switch (maps.next()) {
+            case 'L' -> maps.get(current.left());
+            case 'R' -> maps.get(current.right());
+            default -> throw new IllegalStateException("unknown char");
+          };
+    }
+    return Answer.of(steps);
   }
 
   @Override
