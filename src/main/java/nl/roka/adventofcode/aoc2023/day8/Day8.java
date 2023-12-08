@@ -1,6 +1,7 @@
 package nl.roka.adventofcode.aoc2023.day8;
 
 import nl.roka.adventofcode.aoc.input.Line;
+import nl.roka.adventofcode.aoc.input.LineReader;
 import nl.roka.adventofcode.aoc.puzzle.AbstractDayPuzzle;
 import nl.roka.adventofcode.aoc.puzzle.Answer;
 import nl.roka.adventofcode.aoc.puzzle.Day;
@@ -15,6 +16,10 @@ public class Day8 extends AbstractDayPuzzle {
 
   public Day8() {
     super(new Day(8), Solutions.silver(18827));
+  }
+
+  public Day8(LineReader reader) {
+    super(new Day(8, reader), Solutions.silver(18827));
   }
 
   @Override
@@ -36,6 +41,13 @@ public class Day8 extends AbstractDayPuzzle {
 
   @Override
   public Answer runGold() {
-    return Answer.TBD;
+    Maps maps = Maps.parse(day.stream().map(Line::text).toList());
+    var current = maps.getEndingWithA();
+    var steps = 0;
+    while (current.notAllEndWithZ()) {
+      steps++;
+      current.step(maps);
+    }
+    return Answer.of(steps);
   }
 }

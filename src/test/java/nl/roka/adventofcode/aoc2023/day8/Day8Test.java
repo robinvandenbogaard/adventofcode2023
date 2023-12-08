@@ -3,6 +3,7 @@ package nl.roka.adventofcode.aoc2023.day8;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import nl.roka.adventofcode.aoc.input.LineReader;
 import nl.roka.adventofcode.aoc.puzzle.Answer;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +16,6 @@ class Day8Test {
 
   @Test
   void runGold() {
-    assertThat(new Day8().runGold()).isEqualTo(Answer.TBD);
+    assertThat(new Day8(LineReader.of("/day8-gold.in")).runGold()).isEqualTo(Answer.of(6));
   }
 }

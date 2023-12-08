@@ -8,9 +8,6 @@ class Maps {
 
   public static final Path AAA = Path.id("AAA");
   public static final Path ZZZ = Path.id("ZZZ");
-  public static final int ID = 1;
-  public static final int LEFT = 3;
-  public static final int RIGHT = 5;
   private final Sequence sequence;
   private final Map<Path, Node> nodes = new HashMap<>();
 
@@ -47,5 +44,10 @@ class Maps {
 
   public Node get(Path a) {
     return nodes.get(a);
+  }
+
+  public PathGroup getEndingWithA() {
+
+    return new PathGroup(nodes.keySet().stream().filter(Path::endsWithA).toList());
   }
 }
