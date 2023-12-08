@@ -9,6 +9,10 @@ public record Solutions(Answer silver, Answer gold) {
     return new Solutions(Answer.of(silver), Answer.of(gold));
   }
 
+  public static Solutions of(String silver, String gold) {
+    return new Solutions(Answer.of(silver), Answer.of(gold));
+  }
+
   public static Solutions silver(int silver) {
     return new Solutions(Answer.of(silver), Answer.TBD);
   }

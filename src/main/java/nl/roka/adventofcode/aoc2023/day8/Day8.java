@@ -10,12 +10,14 @@ import nl.roka.adventofcode.aoc.runner.Runner;
 
 public class Day8 extends AbstractDayPuzzle {
 
+  public static final Solutions SOLUTIONS = Solutions.of("18827", "20220305520997");
+
   public static void main(String[] args) {
     Runner.run(new Day8());
   }
 
   public Day8() {
-    super(new Day(8), Solutions.silver(18827));
+    super(new Day(8), SOLUTIONS);
   }
 
   public Day8(LineReader reader) {
@@ -43,11 +45,6 @@ public class Day8 extends AbstractDayPuzzle {
   public Answer runGold() {
     Maps maps = Maps.parse(day.stream().map(Line::text).toList());
     var current = maps.getEndingWithA();
-    var steps = 0;
-    while (current.notAllEndWithZ()) {
-      steps++;
-      current.step(maps);
-    }
-    return Answer.of(steps);
+    return Answer.of(current.calculateUsingLcm(maps));
   }
 }
