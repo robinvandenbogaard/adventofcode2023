@@ -4,6 +4,7 @@ import nl.roka.adventofcode.aoc.input.Line;
 import nl.roka.adventofcode.aoc.puzzle.AbstractDayPuzzle;
 import nl.roka.adventofcode.aoc.puzzle.Answer;
 import nl.roka.adventofcode.aoc.puzzle.Day;
+import nl.roka.adventofcode.aoc.puzzle.Solutions;
 import nl.roka.adventofcode.aoc.runner.Runner;
 
 public class Day8 extends AbstractDayPuzzle {
@@ -13,7 +14,7 @@ public class Day8 extends AbstractDayPuzzle {
   }
 
   public Day8() {
-    super(new Day(8));
+    super(new Day(8), Solutions.silver(18827));
   }
 
   @Override
