@@ -16,7 +16,7 @@ public class Day7 extends AbstractDayPuzzle {
   }
 
   public Day7() {
-    super(new Day(7), Solutions.silver(250957639));
+    super(new Day(7), Solutions.of(250957639, 251515496));
   }
 
   @Override

@@ -1,6 +1,8 @@
 package nl.roka.adventofcode.aoc2023.day7;
 
 import java.util.Arrays;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public enum CardType {
   FiveOfKind(7),
@@ -10,6 +12,8 @@ public enum CardType {
   TwoPair(3),
   OnePair(2),
   HighCard(1);
+
+  private static final Logger log = LoggerFactory.getLogger(CardType.class);
 
   private final int strength;
 
@@ -52,13 +56,25 @@ public enum CardType {
     var regular = of(hand);
     if (!hand.contains("J")) return regular;
 
-    return switch (regular) {
-      case FiveOfKind -> regular;
-      case FourOfKind, FullHouse -> FiveOfKind;
-      case ThreeOfKind, TwoPair -> FourOfKind;
-      case OnePair -> ThreeOfKind;
-      case HighCard -> OnePair;
-    };
+    var result =
+        switch (regular) {
+          case FiveOfKind -> regular;
+          case FourOfKind, FullHouse -> FiveOfKind;
+          case ThreeOfKind -> FourOfKind;
+          case TwoPair -> hasTwoJokers(hand) ? FourOfKind : FullHouse;
+          case OnePair -> ThreeOfKind;
+          case HighCard -> OnePair;
+        };
+
+    log.debug("Hand '{}' = '{}'.", hand, result);
+
+    return result;
+  }
+
+  private static boolean hasTwoJokers(String hand) {
+    var cards = hand.toCharArray();
+    Arrays.sort(cards);
+    return new String(cards).contains("JJ");
   }
 
   public int strength() {

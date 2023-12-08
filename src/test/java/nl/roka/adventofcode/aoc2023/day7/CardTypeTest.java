@@ -34,12 +34,23 @@ class CardTypeTest {
   void fourOfKind_Joker() {
     assertThat(CardType.ofJoker("#J444")).isEqualTo(CardType.FourOfKind);
     assertThat(CardType.ofJoker("#JJJ4")).isEqualTo(CardType.FourOfKind);
-    assertThat(CardType.ofJoker("$JJ**")).isEqualTo(CardType.FourOfKind);
   }
 
   @Test
   void fullHouse() {
     assertThat(CardType.of("JJ***")).isEqualTo(CardType.FullHouse);
+  }
+
+  @Test
+  void bump_two_pairs_with_two_jokers_to_fourOfKind() {
+    assertThat(CardType.of("22JJ9")).isEqualTo(CardType.TwoPair);
+    assertThat(CardType.ofJoker("22JJ9")).isEqualTo(CardType.FourOfKind);
+  }
+
+  @Test
+  void bump_two_pairs_with_one_joker_to_fullHouse() {
+    assertThat(CardType.of("2J299")).isEqualTo(CardType.TwoPair);
+    assertThat(CardType.ofJoker("2J299")).isEqualTo(CardType.FullHouse);
   }
 
   @Test
