@@ -15,7 +15,8 @@ public class Day10 extends AbstractDayPuzzle {
 
   @Override
   public Answer runSilver() {
-    return Answer.TBD;
+    var pipes = new Pipes(day.fullGrid());
+    return Answer.of(pipes.calcSteps());
   }
 
   @Override

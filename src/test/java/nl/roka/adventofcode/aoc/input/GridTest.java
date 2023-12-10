@@ -45,4 +45,13 @@ class GridTest {
     assertThat(grid.get(point_b.west())).isEqualTo("a");
     assertThat(grid.get(point_b.east())).isEqualTo("c");
   }
+
+  @Test
+  void setSymbol() {
+    Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
+
+    grid.set(Point.of(2, 0), "*");
+
+    assertThat(grid.get(Point.of(2, 0))).isEqualTo("*");
+  }
 }

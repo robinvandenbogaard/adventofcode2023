@@ -54,4 +54,10 @@ public class Grid {
     }
     return result;
   }
+
+  public void set(Point point, String symbol) {
+    String text = grid[point.x()];
+    int index = point.y();
+    grid[point.x()] = text.substring(0, index) + symbol + text.substring(index + 1);
+  }
 }
