@@ -24,19 +24,19 @@ public record Point(int x, int y) {
   }
 
   public Point north() {
-    return this.add(0, -1);
-  }
-
-  public Point south() {
-    return this.add(0, 1);
-  }
-
-  public Point east() {
     return this.add(-1, 0);
   }
 
-  public Point west() {
+  public Point south() {
     return this.add(1, 0);
+  }
+
+  public Point east() {
+    return this.add(0, 1);
+  }
+
+  public Point west() {
+    return this.add(0, -1);
   }
 
   public Point add(int x, int y) {

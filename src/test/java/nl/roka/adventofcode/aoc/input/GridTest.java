@@ -23,7 +23,7 @@ class GridTest {
     Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
 
     assertThat(grid.get(-1, 0)).isNull();
-    assertThat(grid.get(2, 0)).isNull();
+    assertThat(grid.get(3, 0)).isNull();
     assertThat(grid.get(1, -1)).isNull();
     assertThat(grid.get(1, 3)).isNull();
   }
@@ -33,5 +33,16 @@ class GridTest {
     Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
 
     assertThat(grid.findSymbol("b")).isEqualTo(Point.of(1, 1));
+  }
+
+  @Test
+  void directional() {
+    Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
+    Point point_b = grid.findSymbol("b");
+
+    assertThat(grid.get(point_b.north())).isEqualTo("2");
+    assertThat(grid.get(point_b.south())).isEqualTo("#");
+    assertThat(grid.get(point_b.west())).isEqualTo("a");
+    assertThat(grid.get(point_b.east())).isEqualTo("c");
   }
 }
