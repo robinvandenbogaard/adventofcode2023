@@ -1,5 +1,6 @@
 package nl.roka.adventofcode.aoc2023.day9;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,20 +11,18 @@ class SequenceSolver {
   private static final Logger log = LoggerFactory.getLogger(SequenceSolver.class);
 
   private final Sequence rootSquence;
-  private ArrayList<Sequence> diffs;
 
   public SequenceSolver(Sequence sequence) {
     rootSquence = sequence;
   }
 
-  public static long findNext(Sequence sequence) {
+  public static BigInteger findNext(Sequence sequence) {
     var solver = new SequenceSolver(sequence);
-
-    return solver.solve();
+    return solver.solveDiff();
   }
 
-  private long solve() {
-    diffs = new ArrayList<>();
+  private BigInteger solveDiff() {
+    var diffs = new ArrayList<Sequence>();
     diffs.add(rootSquence);
     var current = rootSquence;
 
@@ -31,25 +30,24 @@ class SequenceSolver {
       current = findDiff(current);
       log.debug("rootDiff = {}", current);
       diffs.add(current);
+      if (current.size() == 1)
+        throw new IllegalStateException("Failed to find common divisor for " + rootSquence);
     }
 
     Collections.reverse(diffs);
-    log.debug("diffs: {}", diffs);
-
-    long result = 0;
+    BigInteger result = BigInteger.ZERO;
+    log.debug("Arithmetic d={}: {}", diffs.get(0).lastValueInSequence(), diffs);
     for (int i = 0; i < diffs.size(); i++) {
-      result += diffs.get(i).lastValueInSequence();
+      result = result.add(diffs.get(i).lastValueInSequence());
     }
-
     return result;
   }
 
   private Sequence findDiff(Sequence sequence) {
-    List<Long> diffs = new ArrayList<>();
+    List<BigInteger> diffs = new ArrayList<>();
     for (int i = 0; i < sequence.size() - 1; i++) {
       diffs.add(sequence.diff(i, i + 1));
     }
-
     return Sequence.of(diffs);
   }
 }

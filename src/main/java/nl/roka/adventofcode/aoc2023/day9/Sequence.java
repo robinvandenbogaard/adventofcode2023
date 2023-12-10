@@ -1,21 +1,21 @@
 package nl.roka.adventofcode.aoc2023.day9;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
-record Sequence(List<Long> values) {
+record Sequence(List<BigInteger> values) {
 
   public static Sequence parse(String input) {
-    return new Sequence(
-        Arrays.stream(input.split(" ")).mapToLong(Long::parseLong).boxed().toList());
+    return new Sequence(Arrays.stream(input.split(" ")).map(BigInteger::new).toList());
   }
 
-  public static Sequence of(List<Long> diffs) {
+  public static Sequence of(List<BigInteger> diffs) {
     return new Sequence(diffs);
   }
 
   boolean valuesAreEqual() {
-    Long value = values.get(0);
+    BigInteger value = values.get(0);
     return values.stream().allMatch(v -> v.equals(value));
   }
 
@@ -23,11 +23,11 @@ record Sequence(List<Long> values) {
     return values.size();
   }
 
-  public Long diff(int index1, int index2) {
-    return Math.abs(values.get(index1) - values.get(index2));
+  public BigInteger diff(int index1, int index2) {
+    return values.get(index2).subtract(values.get(index1)).abs();
   }
 
-  public long lastValueInSequence() {
+  public BigInteger lastValueInSequence() {
     return values.get(values.size() - 1);
   }
 }

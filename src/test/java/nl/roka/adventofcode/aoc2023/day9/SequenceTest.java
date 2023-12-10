@@ -3,13 +3,33 @@ package nl.roka.adventofcode.aoc2023.day9;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 
 class SequenceTest {
 
   @Test
   void parse() {
-    assertThat(Sequence.parse("1 2 3 4 5 6").values()).containsExactly(1L, 2L, 3L, 4L, 5L, 6L);
+    assertThat(Sequence.parse("1 2 3 4 5 6").values())
+        .containsExactly(
+            BigInteger.valueOf(1),
+            BigInteger.valueOf(2),
+            BigInteger.valueOf(3),
+            BigInteger.valueOf(4),
+            BigInteger.valueOf(5),
+            BigInteger.valueOf(6));
+  }
+
+  @Test
+  void parseNegative() {
+    assertThat(Sequence.parse("1 -2 3 -4 5 6").values())
+        .containsExactly(
+            BigInteger.valueOf(1),
+            BigInteger.valueOf(-2),
+            BigInteger.valueOf(3),
+            BigInteger.valueOf(-4),
+            BigInteger.valueOf(5),
+            BigInteger.valueOf(6));
   }
 
   @Test
