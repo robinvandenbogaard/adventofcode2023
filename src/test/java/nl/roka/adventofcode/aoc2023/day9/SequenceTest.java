@@ -1,7 +1,6 @@
 package nl.roka.adventofcode.aoc2023.day9;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
@@ -36,5 +35,15 @@ class SequenceTest {
   void same() {
     assertThat(Sequence.parse("1 1 1 1").valuesAreEqual()).isTrue();
     assertThat(Sequence.parse("1 2 1 1").valuesAreEqual()).isFalse();
+  }
+
+  @Test
+  void diff() {
+    assertThat(Sequence.parse("16 18").diff(0, 1)).isEqualTo(BigInteger.valueOf(2));
+  }
+
+  @Test
+  void negativeDiffIsAllowed() {
+    assertThat(Sequence.parse("18 16").diff(0, 1)).isEqualTo(BigInteger.valueOf(-2));
   }
 }

@@ -24,7 +24,7 @@ record Sequence(List<BigInteger> values) {
   }
 
   public BigInteger diff(int index1, int index2) {
-    return values.get(index2).subtract(values.get(index1)).abs();
+    return values.get(index2).subtract(values.get(index1));
   }
 
   public BigInteger lastValueInSequence() {
