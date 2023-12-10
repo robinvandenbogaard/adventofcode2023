@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class Day9Test {
   @Test
   void runSilver() {
-    assertThat(new Day9().runSilver()).isEqualTo(Answer.TBD);
+    assertThat(new Day9().runSilver()).isEqualTo(Answer.of(114));
   }
 
   @Test
