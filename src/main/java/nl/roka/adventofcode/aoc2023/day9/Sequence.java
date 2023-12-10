@@ -30,4 +30,8 @@ record Sequence(List<BigInteger> values) {
   public BigInteger lastValueInSequence() {
     return values.get(values.size() - 1);
   }
+
+  public BigInteger firstValueInSequence() {
+    return values.get(0);
+  }
 }

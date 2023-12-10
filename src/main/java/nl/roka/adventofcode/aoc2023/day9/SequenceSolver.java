@@ -18,10 +18,15 @@ class SequenceSolver {
 
   public static BigInteger findNext(Sequence sequence) {
     var solver = new SequenceSolver(sequence);
-    return solver.solveDiff();
+    return solver.solveDiff(true);
   }
 
-  private BigInteger solveDiff() {
+  public static BigInteger findPrevious(Sequence sequence) {
+    var solver = new SequenceSolver(sequence);
+    return solver.solveDiff(false);
+  }
+
+  private BigInteger solveDiff(boolean next) {
     var diffs = new ArrayList<Sequence>();
     diffs.add(rootSquence);
     var current = rootSquence;
@@ -35,11 +40,27 @@ class SequenceSolver {
     }
 
     Collections.reverse(diffs);
+    if (next) return getNext(diffs);
+    else return getPrevious(diffs);
+  }
+
+  private static BigInteger getNext(ArrayList<Sequence> diffs) {
     BigInteger result = BigInteger.ZERO;
     log.debug("Arithmetic d={}: {}", diffs.get(0).lastValueInSequence(), diffs);
     for (int i = 0; i < diffs.size(); i++) {
       result = result.add(diffs.get(i).lastValueInSequence());
     }
+    log.debug("next result for sequence = {}", result);
+    return result;
+  }
+
+  private static BigInteger getPrevious(ArrayList<Sequence> diffs) {
+    BigInteger result = BigInteger.ZERO;
+    log.debug("Arithmetic d={}: {}", diffs.get(0).firstValueInSequence(), diffs);
+    for (int i = 0; i < diffs.size(); i++) {
+      result = diffs.get(i).firstValueInSequence().subtract(result);
+    }
+    log.debug("previous result for sequence = {}", result);
     return result;
   }
 

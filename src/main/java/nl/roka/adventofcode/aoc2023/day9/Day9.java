@@ -30,6 +30,11 @@ public class Day9 extends AbstractDayPuzzle {
 
   @Override
   public Answer runGold() {
-    return Answer.TBD;
+    return Answer.of(
+        day.stream()
+            .map(Line::text)
+            .map(Sequence::parse)
+            .map(SequenceSolver::findPrevious)
+            .reduce(BigInteger.ZERO, BigInteger::add));
   }
 }

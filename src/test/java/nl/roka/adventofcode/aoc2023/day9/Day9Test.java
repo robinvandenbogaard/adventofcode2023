@@ -13,6 +13,6 @@ class Day9Test {
 
   @Test
   void runGold() {
-    assertThat(new Day9().runGold()).isEqualTo(Answer.TBD);
+    assertThat(new Day9().runGold()).isEqualTo(Answer.of(2));
   }
 }
