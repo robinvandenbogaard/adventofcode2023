@@ -27,4 +27,11 @@ class GridTest {
     assertThat(grid.get(1, -1)).isNull();
     assertThat(grid.get(1, 3)).isNull();
   }
+
+  @Test
+  void symbol() {
+    Grid grid = Grid.of(LineReader.of("/aoc/gridTest.in"));
+
+    assertThat(grid.findSymbol("b")).isEqualTo(Point.of(1, 1));
+  }
 }

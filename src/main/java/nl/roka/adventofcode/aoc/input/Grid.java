@@ -45,4 +45,13 @@ public class Grid {
   public String get(Point point) {
     return get(point.x(), point.y());
   }
+
+  public Point findSymbol(String symbol) {
+    Point result = null;
+    for (int row = 0; row < grid.length && result == null; row++) {
+      var column = grid[row].indexOf(symbol);
+      if (column > -1) result = Point.of(row, column);
+    }
+    return result;
+  }
 }
